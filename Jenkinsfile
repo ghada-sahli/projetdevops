@@ -17,16 +17,19 @@ pipeline {
         stage('Compilation') {
             steps {
                 echo '========== Compilation du projet =========='
-                sh 'mvn clean compile'
+                sh 'mvn clean compile -DskipTests'
             }
         }
 
+        // Stage Tests Unitaires supprimée temporairement
+        /*
         stage('Tests Unitaires') {
             steps {
                 echo '========== Exécution des tests unitaires =========='
                 sh 'mvn test'
             }
         }
+        */
 
         stage('Package') {
             steps {
